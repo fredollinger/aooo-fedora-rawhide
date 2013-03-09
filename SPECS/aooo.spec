@@ -30,6 +30,7 @@ BuildRequires: make
 BuildRequires: perl(Archive::Zip)
 BuildRequires: perl(Digest::MD5)
 BuildRequires: zip
+BuildRequires: perl(Digest::SHA)
 
 # libs / headers
 BuildRequires: GConf2-devel
@@ -911,10 +912,7 @@ export PYTHON_CFLAGS=`pkg-config --cflags python`
 export PYTHON_LIBS=`pkg-config --libs python`
 %endif
 
-%aclocal -I m4
 autoconf
-# avoid running autogen.sh on make
-touch autogen.lastrun
 %configure \
  %vendoroption %{?_smp_flags:--with-parallelism=%{_smp_flags}} \
  --with-build-version="%{version}-%{release}" --with-unix-wrapper=%{name} \
@@ -931,25 +929,16 @@ touch autogen.lastrun
  --without-myspell-dicts --without-fonts --without-ppds --without-afms \
  %{?with_lang} --with-poor-help-localizations="$POORHELPS" \
  --with-external-tar="$EXTSRCDIR" --with-java-target-version=1.5 \
- %{distrooptions} \
- --disable-fetch-external
-
-if ! make VERBOSE=true; then
-    # TODO Do we still need this? I think parallel build is reliable
-    # enough these days...
-    make VERBOSE=true PARALLELISM=1
-fi
+ %{distrooptions} 
 
 #generate the icons and mime type stuff
 export DESTDIR=../../../output
 export KDEMAINDIR=/usr
 export GNOMEDIR=/usr
 export GNOME_MIME_THEME=hicolor
-# TODO use empty variables? Should make the renaming hacks in %%install
-# unnecessary.
-. ./bin/get_config_variables PRODUCTVERSIONSHORT PRODUCTVERSION
-cd sysui/unxlng*/misc/openoffice
-./create_tree.sh
+./bootstrap
+. LinuxX86Env.Set.sh
+cd instsetoo_native && build --all
 
 echo build end time is `date`, diskspace: `df -h . | tail -n 1`
 
