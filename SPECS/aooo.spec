@@ -911,7 +911,7 @@ export PYTHON_CFLAGS=`pkg-config --cflags python`
 export PYTHON_LIBS=`pkg-config --libs python`
 %endif
 
-aclocal -I m4
+%aclocal -I m4
 autoconf
 # avoid running autogen.sh on make
 touch autogen.lastrun
