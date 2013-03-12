@@ -5,12 +5,12 @@
 Summary:        Build Tool For Open Office
 Name:           dmake 
 Epoch:          1
-Version:        1
+Version:        4.12.2
 Release:        %{dmake}
 License:        (MPLv1.1 or LGPLv3+) and LGPLv3 and LGPLv2+ and BSD and (MPLv1.1 or GPLv2 or LGPLv2 or Netscape) and Public Domain and ASL 2.0 and Artistic and MPLv2.0
 Group:          Applications/Productivity
 URL:            http://code.google.com/a/apache-extras.org/p/dmake/
-Source0:        %{source_url}/dmake-{dmake_version}.tar.bz2
+Source0:        %{source_url}/dmake-%{dmake_version}.tar.bz2
 
 # build tools
 BuildRequires: autoconf
@@ -45,3 +45,16 @@ Group: Development
 
 %description tool
 Main files for the dmake tool.
+
+%prep
+%setup -q 
+
+%build
+%configure
+make
+
+%install
+make install DESTDIR=%{buildroot}
+
+%clean
+rm -rf %{buildroot}
