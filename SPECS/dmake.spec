@@ -55,16 +55,14 @@ make
 
 %install
 make install DESTDIR=%{buildroot}
-install -m 0755 -d  dmake /usr/bin
-install -m 0755 -d  config.mk %{buildroot}/usr/share/startup
-install -m 0755 -d  startup.mk %{buildroot}/usr/share/startup
-install -m 0755 -d  macros.mk %{buildroot}/usr/share/startup/unix/linux
-install -m 0755 -d  macros.mk %{buildroot}/usr/share/startup/unix
-install -m 0755 -d  recipes.mk %{buildroot}/usr/share/startup/unix
-
-
-
-
 
 %clean
 rm -rf %{buildroot}
+
+%files
+/usr/bin/dmake
+/usr/share/startup/config.mk
+/usr/share/startup/startup.mk
+/usr/share/startup/unix/linux/macros.mk
+/usr/share/startup/unix/macros.mk
+/usr/share/startup/unix/recipes.mk
