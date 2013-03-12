@@ -1,5 +1,5 @@
+%define dmake 1
 %define dmake_version 4.12.2
-#%define source_url http://dmake.apache-extras.org.codespot.com/files/dmake-4.12.2.tar.bz2
 %define source_url http://dmake.apache-extras.org.codespot.com/files/dmake-4.12.2.tar.bz2
 
 Summary:        Build Tool For Open Office
