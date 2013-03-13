@@ -7,7 +7,7 @@ Name:           dmake
 Epoch:          1
 Version:        4.12.2
 Release:        %{dmake}
-License:        (MPLv1.1 or LGPLv3+) and LGPLv3 and LGPLv2+ and BSD and (MPLv1.1 or GPLv2 or LGPLv2 or Netscape) and Public Domain and ASL 2.0 and Artistic and MPLv2.0
+License:	GPLv2+
 Group:          Applications/Productivity
 URL:            http://code.google.com/a/apache-extras.org/p/dmake/
 Source0:        %{source_url}/dmake-%{dmake_version}.tar.bz2
@@ -66,3 +66,9 @@ rm -rf %{buildroot}
 /usr/share/startup/unix/linux/macros.mk
 /usr/share/startup/unix/macros.mk
 /usr/share/startup/unix/recipes.mk
+
+%doc man
+
+%changelog
+*  Mon Mar 11 2013 Fred Ollinger <follinge@gmail.com> 4.12.2-1
+- Initial Packaging
