@@ -7,7 +7,7 @@ Summary:        ESP Package Manager (EPM)
 Name:           epm 
 Epoch:          1
 Version:        %{epm_version}
-Release:        %{dmake}
+Release:        %{epm}
 License:	GPLv2+
 Group:          Applications/Development
 URL:            http://www.epmhome.org
@@ -46,7 +46,6 @@ Main files for the epm tool.
 %setup -q 
 
 %build
-echo rm -rf epm %{buildroot}
 %configure
 make
 
@@ -57,9 +56,20 @@ make install DESTDIR=%{buildroot}
 rm -rf %{buildroot}
 
 %files
+/usr/bin/epm
+/usr/bin/epminstall
+/usr/bin/mkepmlist
+/usr/share/man/man1/epm.1.gz
+/usr/share/man/man1/epminstall.1.gz
+/usr/share/man/man1/mkepmlist.1.gz
+/usr/share/man/man1/setup.1.gz
+/usr/share/man/man5/epm.list.5.gz
+/usr/share/man/man5/setup.types.5.gz
+#/usr/share/doc/epm/COPYING
+#/usr/share/doc/epm/README
 
-%doc man
+%doc doc/epm.man
 
 %changelog
-*  Thu Mar 20 2013 Fred Ollinger <follinge@gmail.com> 4.2-1
+*  Fri Mar 15 2013 Fred Ollinger <follinge@gmail.com> 4.2-1
 - Initial Packaging
