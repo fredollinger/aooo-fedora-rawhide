@@ -15,17 +15,9 @@ Source0:        %{source_url}/dmake-%{dmake_version}.tar.bz2
 # build tools
 BuildRequires: autoconf
 BuildRequires: automake
-BuildRequires: bc
 BuildRequires: binutils
-BuildRequires: bison
 BuildRequires: desktop-file-utils
-BuildRequires: doxygen
 BuildRequires: findutils
-BuildRequires: flex
-BuildRequires: gperf
-BuildRequires: icu
-BuildRequires: perl(Archive::Zip)
-BuildRequires: perl(Digest::MD5)
 BuildRequires: zip
 
 %description
