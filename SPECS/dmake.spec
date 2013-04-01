@@ -22,10 +22,8 @@ BuildRequires: desktop-file-utils
 BuildRequires: doxygen
 BuildRequires: findutils
 BuildRequires: flex
-BuildRequires: gcc-c++
 BuildRequires: gperf
 BuildRequires: icu
-BuildRequires: make
 BuildRequires: perl(Archive::Zip)
 BuildRequires: perl(Digest::MD5)
 BuildRequires: zip
